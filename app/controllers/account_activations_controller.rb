@@ -1,6 +1,4 @@
 class AccountActivationsController < ApplicationController
-  #before_create :create_activation_digest
-
   def edit
     user = User.find_by(email: params[:email])
     if user && !user.activated? && user.authenticated?(:activation, params[:id])
@@ -14,9 +12,4 @@ class AccountActivationsController < ApplicationController
     end
   end
 
-  private
-
-    def create_activation_digest
-
-    end
 end
